@@ -1,0 +1,261 @@
+.clear {
+	clear: both;
+}
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+body {
+	margin: 0;
+	padding: 2em;
+	font-family: 'Open Sans','Helvetica Neue',Arial,Helvetica,sans-serif;
+	background: aliceblue;
+}
+p, li {
+	font-size: 0.9em;
+	line-height: 1.5em;
+}
+h2, h3 {
+	font-size: 1.4em;
+}
+a.btn, button {
+	position: relative;
+	display: inline-block;
+	background: white;
+	color: #6f6f6f;
+	text-decoration: none;
+	padding: .25em 1em;
+	border: 1px solid lightgray;
+	border-radius: 3px;
+	z-index: 1;
+	cursor: pointer;
+	font-size: 0.9em;
+}
+a.btn:after, button:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 0;
+	z-index: -1;
+	transition: height 0.2s;
+	background-color: #427AA9;
+	background: linear-gradient(to bottom right, #305879, 5%, #427aa9);
+}
+a.btn:hover, button:hover {
+	color: white;
+	border-color: #427AA9;
+}
+a.btn:hover:after, button:hover:after {
+	height: 100%;
+}
+
+header {
+	text-align: center;
+	background-color: white;
+	border: 1px solid lightsteelblue;
+	border-radius: 5px;
+	padding: 1em;
+	margin: 75px 25% 2em;
+	box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .2);
+}
+header * {
+	margin: 0;
+	padding: 0;
+}
+header .img {
+	width: 130px;
+	height: 130px;
+	background: white;
+	margin: -87px auto 1em;
+	border: 1px solid lightsteelblue;
+	border-radius: 65px;
+	overflow: hidden;
+}
+header .img img {
+	width: 100%;
+}
+header h1 {
+	font-size: 1.6em;
+}
+header h2 {
+	font-size: 1em;
+	font-weight: normal;
+	color: gray;
+}
+header a.btn {
+	margin-top: 0.5em;
+}
+header p {
+	text-align: left;
+	margin-top: 1em;
+	padding-top: 1em;
+	border-top: 1px solid lightsteelblue;
+}
+
+main {
+	max-width: 1500px;
+	margin: 0 auto;
+}
+main .border-bgrd {
+	background: linear-gradient(to bottom right, steelblue, 5%, aliceblue);
+	border-radius: 5px 5px 0 0;
+	padding: 1px;
+	margin-bottom: 1em;
+}
+main .projects-header {
+	padding: 0.5em;
+	border-radius: 5px 5px 0 0;
+	background: aliceblue;
+	border: none;
+	margin: 0 0 -1px 0;
+}
+main .projects-header h2 {
+	margin: 0;
+}
+main .projects-header .show-all {
+	display: none;
+	margin-top: 1em;
+}
+body.active main .projects-header .show-all {
+	display: block;
+}
+
+section {
+	opacity: 1;
+	overflow: hidden;
+	box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .2);
+	border-radius: 5px;
+	background: #427AA9;
+	background: linear-gradient(to bottom right, #305879, 5%, #427aa9);
+	margin-bottom: 1em;
+	transition: all .3s ease;
+}
+section.orphan {
+	width: 100%;
+}
+body.active section {
+	opacity: 0;
+	width: 0;
+	height: 0;
+	margin: 0;
+}
+body.active section.active {
+	opacity: 1;
+	width: auto;
+	height: auto;
+}
+section > h3 {
+	margin: 0;
+	color: white;
+	padding:  .5em;
+}
+section .wrap {
+	position: relative;
+	background: white;
+	border: .1em solid #427AA9;
+	border-radius: 5px;
+	padding: 1em;
+	margin-bottom: 0.5em;
+}
+section .wrap p, section .wrap ul {
+	margin: 0 0 1.5em 0;
+}
+section .blurb {
+	max-height: 9.3em;
+	overflow: hidden;
+	width: calc(60% - 2em);
+}
+section.active .blurb {
+	max-height: none;
+	min-height: 25em;
+	width: calc(50% - 2em);
+}
+section .blurb.no-screenshot {
+	width: 100%;
+}
+section .ellipses {
+	margin: 0 0 1em;
+}
+section.active .ellipses, section.active button {
+	display: none;
+}
+section .screenshot {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	border: .1em solid lightsteelblue;
+	border-radius: 3px;
+	width: 40%;
+	max-height: calc(100% - 2em);
+	overflow: hidden;
+}
+section .screenshot img {
+	border-radius: 3px;
+	width: 100%;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+section.active .screenshot {
+	width: 50%;
+	border-radius: 5px;
+}
+section.active .screenshot img {
+	border-radius: 5px;
+	cursor: auto;
+}
+
+
+@media only screen and (max-width: 900px) {
+	header {
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	section.active .blurb {
+		width: 100%;
+		min-height: 0;
+	}
+	section.active .screenshot {
+		position: relative;
+		width: 100%;
+		right: auto;
+		top: auto;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	header {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	main .columns {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	section {
+		box-sizing: border-box;
+		width: calc(50% - 0.5em);
+	}
+	body.active section.active {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	section {
+		width: calc(33% - 0.5em);
+	}
+}
