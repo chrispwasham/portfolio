@@ -135,7 +135,6 @@ section {
 	background: #427AA9;
 	background: linear-gradient(to bottom right, #305879, 5%, #427aa9);
 	margin-bottom: 1em;
-	transition: all .3s ease-in;
 }
 section.orphan {
 	width: 100%;
@@ -144,7 +143,14 @@ body.active section {
 	opacity: 0;
 	width: 0;
 	height: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  section {
+	transition: all .3s ease-in;
+}
+  body.active section {
 	transition: all .3s ease-out;
+  }
 }
 body.active section.active {
 	opacity: 1;
